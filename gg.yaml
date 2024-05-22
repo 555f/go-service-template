@@ -1,0 +1,16 @@
+packages:
+  - ./internal/usecase/controller/...
+  - ./internal/config/...
+  - ./pkg/domain/dto/...
+  - ./pkg/domain/errors/...
+plugins:
+  http:
+    error-wrapper: pkg/domain/errors/ErrorWrapper
+    error-default: pkg/domain/errors/DefaultError
+    openapi-tpl: ./docs/openapi.tpl.yaml
+    client-output: ./pkg/client/client.go
+    server-output: ./internal/api/server/server.go
+  slog:
+    output: ./internal/api/logging/server_logging.go
+  middleware:
+    output: ./internal/api/middleware/server_middleware.go

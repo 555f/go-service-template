@@ -1,0 +1,56 @@
+# OpenAPI docs
+openapi: 3.0.0
+info:
+  title: Example
+  contact:
+    name: Vitaly Lobchuk
+    email: vitaly@lobchuk.ru
+  version: v1.0.0
+paths:
+  /users:
+    get:
+      tags:
+      - user
+      summary: Поиск и список пользователей
+      parameters:
+      - in: query
+        name: name
+        description: |2+
+
+        schema:
+          description: |2+
+
+          type: string
+          example: abc
+      responses:
+        200:
+          description: OK
+components:
+  schemas:
+    ErrorDefaultError:
+      type: object
+      properties:
+        errorText:
+          type: string
+          example: abc
+    ErrorServerError:
+      type: object
+      properties:
+        code:
+          type: string
+          example: abc
+        errorText:
+          type: string
+          example: abc
+    User:
+      properties:
+        firstName:
+          description: |2+
+
+          type: string
+          example: abc
+        lastName:
+          description: |2+
+
+          type: string
+          example: abc
